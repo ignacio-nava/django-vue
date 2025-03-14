@@ -1,0 +1,42 @@
+{
+  "_index.js": {
+    "file": "index.js",
+    "name": "index"
+  },
+  "_postsApi.js": {
+    "file": "postsApi.js",
+    "name": "postsApi",
+    "imports": [
+      "_index.js"
+    ]
+  },
+  "src/entrypoints/auth.ts": {
+    "file": "auth.js",
+    "name": "auth",
+    "src": "src/entrypoints/auth.ts",
+    "isEntry": true,
+    "imports": [
+      "_index.js"
+    ]
+  },
+  "src/entrypoints/postDetail.ts": {
+    "file": "postDetail.js",
+    "name": "postDetail",
+    "src": "src/entrypoints/postDetail.ts",
+    "isEntry": true,
+    "imports": [
+      "_postsApi.js",
+      "_index.js"
+    ]
+  },
+  "src/entrypoints/postsList.ts": {
+    "file": "postsList.js",
+    "name": "postsList",
+    "src": "src/entrypoints/postsList.ts",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_postsApi.js"
+    ]
+  }
+}

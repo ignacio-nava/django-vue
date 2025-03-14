@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load posts_tags %}
+
+{% block navbar %}
+<header class="line-bottom">
+    <nav class="container flex-row justify-space-between alig-center pad-y-100">
+        <div>
+            <a href="{% url 'posts:home' %}" class="fw-800 fs-200">BlogPost</a>
+        </div>
+        <div>
+            {% if request.user.is_authenticated %}
+            <div class="flex-row gap-100 alig-center">
+                <div>
+                    <span>
+                        {{ request.user.username }}
+                        <a href="{% url 'posts:create' %}" class="button-small fs-090">New Post</a>
+                    </span>
+                </div>
+                <div id="logout"></div>
+            </div>
+            {% else %}
+            <a href="{% url 'login' %}?next={{ request.path }}" class="button-normal fs-090">Login</a>
+            {% endif %}
+        </div>
+    </nav>
+</header>
+{% endblock %}
+
+{% block script %}
+    {% vue_tag 'auth' %}
+{% endblock %}
